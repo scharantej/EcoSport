@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoWear: Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/products">Products</a></li>
+<li><a href="/cart">Cart</a></li>
+<li><a href="/checkout">Checkout</a></li>
+</ul>
+</nav>
+<div class="hero-section">
+<h1>EcoWear</h1>
+<h2>Sports Wearable Technology for Environmental Impact Tracking</h2>
+</div>
+</header>
+<main>
+<section class="cart">
+<h2>Your Cart</h2>
+<div class="cart-list">
+{% for product in products %}
+<div class="product">
+<img src="{{ product.image }}" alt="{{ product.name }}">
+<h3>{{ product.name }}</h3>
+<p>{{ product.description }}</p>
+<p>{{ product.price }}</p>
+<form action="/remove-from-cart" method="post">
+<input type="hidden" name="product_id" value="{{ product.id }}">
+<input type="submit" value="Remove">
+</form>
+</div>
+{% endfor %}
+</div>
+<div class="cart-total">
+<h3>Total: {{ total }}</h3>
+<a href="/checkout" class="btn">Checkout</a>
+</div>
+</section>
+</main>
+<footer>
+<p>Copyright &copy; 2023 EcoWear. All rights reserved.</p>
+<ul>
+<li><a href="#">Terms of Service</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+</footer>
+</body>
+</html>
+
+
