@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoWear: Sports Wearable Technology for Environmental Impact Tracking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/products">Products</a></li>
+<li><a href="/cart">Cart</a></li>
+<li><a href="/checkout">Checkout</a></li>
+</ul>
+</nav>
+<div class="hero-section">
+<h1>EcoWear</h1>
+<h2>Sports Wearable Technology for Environmental Impact Tracking</h2>
+<a href="/products" class="btn">Shop Now</a>
+</div>
+</header>
+<main>
+<section class="products">
+<h2>Our Products</h2>
+<div class="product-list">
+{% for product in products %}
+<div class="product">
+<img src="{{ product.image }}" alt="{{ product.name }}">
+<h3>{{ product.name }}</h3>
+<p>{{ product.description }}</p>
+<p>{{ product.price }}</p>
+<form action="/add-to-cart" method="post">
+<input type="hidden" name="product_id" value="{{ product.id }}">
+<input type="submit" value="Add to Cart">
+</form>
+</div>
+{% endfor %}
+</div>
+</section>
+<section class="impact">
+<h2>Environmental Impact Tracking</h2>
+<p>With EcoWear, you can track not only your fitness progress but also the environmental impact of your sports activities. Our wearables are made from sustainable materials and designed for longevity. The digital app component tracks metrics like carbon footprint reduction based on activity levels, offers eco-challenges, and provides insights into making sports activities more environmentally friendly.</p>
+</section>
+<section class="values">
+<h2>Our Values</h2>
+<ul>
+<li>Sustainability</li>
+<li>Innovation</li>
+<li>Community</li>
+</ul>
+</section>
+</main>
+<footer>
+<p>Copyright &copy; 2023 EcoWear. All rights reserved.</p>
+<ul>
+<li><a href="#">Terms of Service</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+</footer>
+</body>
+</html>
+
+
